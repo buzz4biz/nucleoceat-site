@@ -1,0 +1,1297 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NCEAT · Núcleo de Comunicação Estratégica Avançada para Terapeutas</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@200;300;400;500;600&family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --noir: #0A0A0A;
+            --charcoal: #2B2B2B;
+            --slate: #4A4A4A;
+            --silver: #9CA3AF;
+            --pearl: #F8F7F4;
+            --cream: #FFFEF9;
+            --gold: #B8985F;
+            --accent: #8B7355;
+        }
+
+        body {
+            font-family: 'Work Sans', -apple-system, sans-serif;
+            color: var(--charcoal);
+            background: var(--cream);
+            line-height: 1.7;
+            font-weight: 300;
+            letter-spacing: 0.01em;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Typography System */
+        h1, h2, h3 {
+            font-family: 'Crimson Pro', Georgia, serif;
+            color: var(--noir);
+            font-weight: 300;
+            letter-spacing: -0.03em;
+        }
+
+        /* Masthead */
+        .masthead {
+            background: var(--noir);
+            color: white;
+            padding: 1.2rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(20px);
+        }
+
+        .masthead-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 4rem;
+            display: grid;
+            grid-template-columns: auto 1fr auto;
+            align-items: center;
+            gap: 3rem;
+        }
+
+        .masthead-logo {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.1rem;
+            font-weight: 400;
+            letter-spacing: 0.2em;
+            color: var(--gold);
+        }
+
+        .masthead-title {
+            font-size: 0.7rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            font-weight: 400;
+            color: rgba(255,255,255,0.5);
+            text-align: center;
+        }
+
+        .masthead-nav {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .masthead-nav a {
+            color: rgba(255,255,255,0.6);
+            text-decoration: none;
+            font-size: 0.75rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            font-weight: 400;
+            transition: color 0.3s;
+        }
+
+        .masthead-nav a:hover {
+            color: var(--gold);
+        }
+
+        /* Hero - Editorial Spread */
+        .hero-section {
+            background: linear-gradient(135deg, var(--noir) 0%, var(--charcoal) 100%);
+            color: white;
+            padding: 10rem 4rem 8rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent 0%, rgba(184, 152, 95, 0.03) 100%);
+        }
+
+        .hero-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 6rem;
+            position: relative;
+        }
+
+        .hero-main h1 {
+            font-size: 4.5rem;
+            line-height: 1.1;
+            margin-bottom: 3rem;
+            color: white;
+            font-weight: 200;
+        }
+
+        .hero-lead {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            color: rgba(255,255,255,0.7);
+            max-width: 600px;
+            font-weight: 300;
+        }
+
+        .hero-meta {
+            border-left: 1px solid rgba(255,255,255,0.2);
+            padding-left: 3rem;
+        }
+
+        .hero-meta-item {
+            margin-bottom: 3rem;
+        }
+
+        .hero-meta-label {
+            font-size: 0.7rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 0.8rem;
+            font-weight: 500;
+        }
+
+        .hero-meta-value {
+            font-size: 0.95rem;
+            color: rgba(255,255,255,0.8);
+            line-height: 1.6;
+        }
+
+        /* Content Grid System */
+        .content-wrapper {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 4rem;
+        }
+
+        /* Section Headers - Centralizados */
+        .section-header {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .section-number-large {
+            font-family: 'Crimson Pro', serif;
+            font-size: 8rem;
+            color: rgba(0,0,0,0.04);
+            font-weight: 200;
+            line-height: 1;
+            margin-bottom: 1rem;
+        }
+
+        .section-title-large {
+            font-size: 3.5rem;
+            line-height: 1.2;
+            font-weight: 300;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* Reading Content - Largura Otimizada */
+        .reading-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .reading-content p {
+            font-size: 1.15rem;
+            line-height: 1.9;
+            margin-bottom: 2rem;
+            color: var(--slate);
+        }
+
+        .reading-content h3 {
+            font-size: 2rem;
+            margin: 4rem 0 2rem;
+            font-weight: 400;
+            text-align: center;
+        }
+
+        /* Feature Section - Two Column */
+        .feature-section {
+            padding: 8rem 0;
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8rem;
+        }
+
+        .feature-aside {
+            position: sticky;
+            top: 120px;
+            height: fit-content;
+        }
+
+        .feature-number {
+            font-family: 'Crimson Pro', serif;
+            font-size: 5rem;
+            color: rgba(0,0,0,0.03);
+            font-weight: 200;
+            line-height: 1;
+            margin-bottom: 2rem;
+        }
+
+        .feature-title {
+            font-size: 2.5rem;
+            line-height: 1.2;
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .feature-content p {
+            font-size: 1.05rem;
+            line-height: 1.9;
+            margin-bottom: 2rem;
+            color: var(--slate);
+        }
+
+        .feature-content h3 {
+            font-size: 1.8rem;
+            margin: 4rem 0 2rem;
+            font-weight: 400;
+        }
+
+        /* Principles List - Refined */
+        .principles-grid {
+            display: grid;
+            gap: 0;
+            margin: 3rem 0;
+            border-top: 1px solid rgba(0,0,0,0.08);
+        }
+
+        .principle-item {
+            padding: 2rem 0;
+            border-bottom: 1px solid rgba(0,0,0,0.08);
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 2rem;
+            align-items: start;
+        }
+
+        .principle-marker {
+            width: 8px;
+            height: 8px;
+            background: var(--gold);
+            border-radius: 50%;
+            margin-top: 0.6rem;
+        }
+
+        .principle-text {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: var(--charcoal);
+        }
+
+        /* Protocol Section - Dark Theme */
+        .protocol-section {
+            background: var(--noir);
+            color: white;
+            padding: 8rem 0;
+            position: relative;
+        }
+
+        .protocol-header {
+            text-align: center;
+            margin-bottom: 6rem;
+            padding-bottom: 4rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .protocol-badge {
+            display: inline-block;
+            padding: 0.6rem 1.5rem;
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            font-size: 0.65rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+            font-weight: 500;
+        }
+
+        .protocol-name {
+            font-size: 6rem;
+            font-weight: 200;
+            color: white;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+
+        .protocol-tagline {
+            font-size: 1.5rem;
+            color: rgba(255,255,255,0.5);
+            font-style: italic;
+            font-weight: 300;
+        }
+
+        /* Modules - Card Grid */
+        .modules-layout {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2px;
+            background: rgba(255,255,255,0.05);
+            margin: 4rem 0;
+        }
+
+        .module-card {
+            background: rgba(255,255,255,0.02);
+            padding: 3rem;
+            border: none;
+            transition: all 0.4s;
+            position: relative;
+        }
+
+        .module-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 3px;
+            height: 0;
+            background: var(--gold);
+            transition: height 0.4s;
+        }
+
+        .module-card:hover {
+            background: rgba(255,255,255,0.04);
+        }
+
+        .module-card:hover::before {
+            height: 100%;
+        }
+
+        .module-title {
+            font-size: 1.15rem;
+            color: white;
+            margin-bottom: 1rem;
+            font-weight: 500;
+            font-family: 'Work Sans', sans-serif;
+        }
+
+        .module-desc {
+            font-size: 0.95rem;
+            color: rgba(255,255,255,0.6);
+            line-height: 1.7;
+        }
+
+        /* Investment Box - Minimal */
+        .investment-container {
+            max-width: 600px;
+            margin: 6rem auto 0;
+            text-align: center;
+            padding: 4rem;
+            border: 1px solid rgba(255,255,255,0.15);
+            background: rgba(255,255,255,0.02);
+        }
+
+        .investment-label {
+            font-size: 0.7rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.4);
+            margin-bottom: 2rem;
+        }
+
+        .investment-amount {
+            font-family: 'Crimson Pro', serif;
+            font-size: 4rem;
+            font-weight: 200;
+            color: var(--gold);
+            margin-bottom: 2rem;
+        }
+
+        .investment-details {
+            font-size: 0.95rem;
+            color: rgba(255,255,255,0.5);
+            line-height: 1.8;
+            margin-bottom: 3rem;
+        }
+
+        /* CTA System */
+        .btn-primary {
+            display: inline-block;
+            padding: 1.2rem 3.5rem;
+            background: white;
+            color: var(--noir);
+            text-decoration: none;
+            font-size: 0.75rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background: var(--gold);
+            color: white;
+        }
+
+        .btn-secondary {
+            display: inline-block;
+            padding: 1.2rem 3.5rem;
+            background: transparent;
+            color: var(--noir);
+            text-decoration: none;
+            font-size: 0.75rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            font-weight: 600;
+            border: 1px solid var(--noir);
+            transition: all 0.3s;
+        }
+
+        .btn-secondary:hover {
+            background: var(--noir);
+            color: white;
+        }
+
+        /* Results - Minimal Cards */
+        .results-grid {
+            display: grid;
+            gap: 0;
+            margin: 4rem 0;
+            max-width: none;
+        }
+
+        .result-card {
+            padding: 2.5rem 0;
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+            display: grid;
+            grid-template-columns: 180px 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .result-label {
+            font-size: 0.75rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--gold);
+            font-weight: 500;
+        }
+
+        .result-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--slate);
+        }
+
+        /* Publications - Editorial Grid */
+        .publications-section {
+            background: var(--pearl);
+            padding: 8rem 0;
+        }
+
+        .publications-grid {
+            display: grid;
+            gap: 0;
+            margin: 4rem 0;
+            border-top: 1px solid rgba(0,0,0,0.1);
+            max-width: none;
+        }
+
+        .publication-card {
+            padding: 3rem 0;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+            display: grid;
+            grid-template-columns: 80px 1fr 100px;
+            gap: 3rem;
+            align-items: start;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .publication-card:hover {
+            padding-left: 2rem;
+            background: rgba(0,0,0,0.01);
+        }
+
+        .publication-number {
+            font-family: 'Crimson Pro', serif;
+            font-size: 2rem;
+            color: rgba(0,0,0,0.15);
+            font-weight: 200;
+        }
+
+        .publication-content h3 {
+            font-size: 1.6rem;
+            margin-bottom: 0.8rem;
+            font-weight: 400;
+            color: var(--noir);
+            text-align: left;
+        }
+
+        .publication-excerpt {
+            font-size: 0.95rem;
+            color: var(--slate);
+            line-height: 1.7;
+        }
+
+        .publication-arrow {
+            font-size: 1.5rem;
+            color: var(--gold);
+            align-self: center;
+        }
+
+        /* Footer - Refined */
+        footer {
+            background: var(--noir);
+            color: rgba(255,255,255,0.5);
+            padding: 6rem 4rem 4rem;
+        }
+
+        .footer-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 6rem;
+            padding-bottom: 4rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .footer-col h4 {
+            color: white;
+            font-size: 0.8rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+            font-family: 'Work Sans', sans-serif;
+        }
+
+        .footer-col p, .footer-col a {
+            font-size: 0.9rem;
+            line-height: 2;
+            color: rgba(255,255,255,0.5);
+            text-decoration: none;
+            display: block;
+        }
+
+        .footer-col a:hover {
+            color: var(--gold);
+        }
+
+        .footer-bottom {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding-top: 3rem;
+            text-align: center;
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.3);
+        }
+
+        /* Modal System */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(10, 10, 10, 0.97);
+            z-index: 10000;
+            overflow-y: auto;
+            backdrop-filter: blur(10px);
+        }
+
+        .modal-overlay.active {
+            display: block;
+            animation: fadeIn 0.3s ease-out;
+        }
+
+        .modal-container {
+            max-width: 900px;
+            margin: 6rem auto;
+            padding: 0 2rem;
+            position: relative;
+        }
+
+        .modal-close {
+            position: fixed;
+            top: 3rem;
+            right: 3rem;
+            width: 50px;
+            height: 50px;
+            background: none;
+            border: 1px solid rgba(255,255,255,0.2);
+            color: white;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 200;
+            z-index: 10001;
+        }
+
+        .modal-close:hover {
+            background: white;
+            color: var(--noir);
+            transform: rotate(90deg);
+        }
+
+        .modal-article {
+            background: var(--cream);
+            padding: 6rem 5rem;
+            animation: slideUp 0.4s ease-out;
+        }
+
+        .modal-article h1 {
+            font-size: 3.5rem;
+            line-height: 1.15;
+            margin-bottom: 3rem;
+            font-weight: 200;
+        }
+
+        .modal-article .article-meta {
+            font-size: 0.7rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--silver);
+            padding-bottom: 3rem;
+            margin-bottom: 3rem;
+            border-bottom: 1px solid rgba(0,0,0,0.08);
+        }
+
+        .modal-article h2 {
+            font-size: 2rem;
+            margin: 4rem 0 1.5rem;
+            font-weight: 400;
+        }
+
+        .modal-article p {
+            font-size: 1.15rem;
+            line-height: 1.85;
+            margin-bottom: 2rem;
+            color: var(--slate);
+        }
+
+        .modal-cta {
+            margin-top: 5rem;
+            padding: 4rem;
+            background: var(--pearl);
+            border-left: 3px solid var(--gold);
+            text-align: center;
+        }
+
+        .modal-cta p {
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .masthead-inner {
+                grid-template-columns: auto 1fr;
+                padding: 0 2rem;
+            }
+
+            .masthead-nav {
+                display: none;
+            }
+
+            .hero-section {
+                padding: 6rem 2rem;
+            }
+
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: 4rem;
+            }
+
+            .hero-main h1 {
+                font-size: 3rem;
+            }
+
+            .hero-meta {
+                border-left: none;
+                border-top: 1px solid rgba(255,255,255,0.2);
+                padding-left: 0;
+                padding-top: 3rem;
+            }
+
+            .content-wrapper {
+                padding: 0 2rem;
+            }
+
+            .section-number-large {
+                font-size: 5rem;
+            }
+
+            .section-title-large {
+                font-size: 2.5rem;
+            }
+
+            .reading-content {
+                max-width: 100%;
+            }
+
+            .reading-content p {
+                font-size: 1.05rem;
+            }
+
+            .modules-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .result-card {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+                padding: 2rem 0;
+            }
+
+            .publication-card {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .publication-number, .publication-arrow {
+                display: none;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+                padding: 0 2rem 3rem;
+            }
+
+            .modal-article {
+                padding: 4rem 2rem;
+            }
+
+            .modal-article h1 {
+                font-size: 2.5rem;
+            }
+
+            .modal-close {
+                top: 2rem;
+                right: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Masthead -->
+    <div class="masthead">
+        <div class="masthead-inner">
+            <div class="masthead-logo">NCEAT</div>
+            <div class="masthead-title">Núcleo de Comunicação Estratégica Avançada</div>
+            <nav class="masthead-nav">
+                <a href="#about">Núcleo</a>
+                <a href="#protocol">Protocolo</a>
+                <a href="#publications">Publicações</a>
+                <a href="#access">Acesso</a>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Hero -->
+    <section class="hero-section">
+        <div class="hero-grid">
+            <div class="hero-main">
+                <h1>Comunicação estratégica para terapeutas</h1>
+                <p class="hero-lead">Protocolos de diferenciação profissional através da clareza de processo.</p>
+            </div>
+            <div class="hero-meta">
+                <div class="hero-meta-item">
+                    <div class="hero-meta-label">Fundação</div>
+                    <div class="hero-meta-value">2023 · Brasil</div>
+                </div>
+                <div class="hero-meta-item">
+                    <div class="hero-meta-label">Área de Atuação</div>
+                    <div class="hero-meta-value">Comunicação Estratégica<br>Diferenciação Profissional<br>Atração Qualificada</div>
+                </div>
+                <div class="hero-meta-item">
+                    <div class="hero-meta-label">Metodologia</div>
+                    <div class="hero-meta-value">Protocolos aplicados · Desenvolvimento contínuo</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Feature 1 -->
+    <section class="feature-section" id="about">
+        <div class="content-wrapper">
+            <div class="section-header">
+                <div class="section-number-large">01</div>
+                <h2 class="section-title-large">O fenômeno estrutural</h2>
+            </div>
+            
+            <div class="reading-content">
+                <p>Profissionais com décadas de prática clínica, formação contínua e domínio técnico consolidado enfrentam um paradoxo no ambiente digital: a dificuldade de serem reconhecidos como distintos quando todos comunicam da mesma forma.</p>
+
+                <p>O desafio não reside na competência profissional. Reside na ausência de sistemas que traduzam processos terapêuticos específicos em comunicação clara e diferenciada.</p>
+
+                <p>O público leigo, ao buscar atendimento, depara-se com profissionais que parecem iguais: mesmas credenciais visíveis, mesmas descrições genéricas, mesma linguagem vaga sobre "acolhimento humanizado" e "escuta qualificada".</p>
+
+                <p>Quando o método utilizado não é nomeado, estruturado e explicado, torna-se invisível para quem busca atendimento. Clientes em potencial tomam decisões baseadas apenas em localização, preço e disponibilidade de horário.</p>
+
+                <p>A objeção de preço surge não por falta de recursos, mas por falta de clareza sobre o que diferencia um profissional do outro. Sem comunicação clara sobre o processo, a diferenciação profissional torna-se impossível — e a atração de clientes adequados, aleatória.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Feature 2 -->
+    <section class="feature-section">
+        <div class="content-wrapper">
+            <div class="section-header">
+                <div class="section-number-large">02</div>
+                <h2 class="section-title-large">Princípios operacionais</h2>
+            </div>
+            
+            <div class="reading-content">
+                <p>O Núcleo de Comunicação Estratégica Avançada para Terapeutas desenvolve protocolos que transformam processos clínicos em comunicação clara, estruturada e diferenciada.</p>
+
+                <p>O objetivo não é ensinar persuasão comercial. É construir clareza sobre o método utilizado, permitindo que clientes qualificados reconheçam valor, compreendam o investimento e se tornem agentes ativos de indicação.</p>
+
+                <div class="principles-grid">
+                    <div class="principle-item">
+                        <div class="principle-marker"></div>
+                        <div class="principle-text">Clareza sobre o processo gera reconhecimento de valor</div>
+                    </div>
+                    <div class="principle-item">
+                        <div class="principle-marker"></div>
+                        <div class="principle-text">Comunicação estruturada atrai clientes adequados ao método</div>
+                    </div>
+                    <div class="principle-item">
+                        <div class="principle-marker"></div>
+                        <div class="principle-text">Diferenciação por processo reduz objeção de preço</div>
+                    </div>
+                    <div class="principle-item">
+                        <div class="principle-marker"></div>
+                        <div class="principle-text">Método comunicável gera indicações consistentes</div>
+                    </div>
+                    <div class="principle-item">
+                        <div class="principle-marker"></div>
+                        <div class="principle-text">Ética profissional acima de estratégias comerciais</div>
+                    </div>
+                </div>
+
+                <p style="margin-top: 3rem; font-style: italic; color: var(--silver);">Protocolos implementados por profissionais em diferentes contextos clínicos. Metodologias em desenvolvimento contínuo desde 2023. Abordagem aplicada em consultórios privados, clínicas integradas e práticas individuais.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Protocol -->
+    <section class="protocol-section" id="protocol">
+        <div class="content-wrapper">
+            <div class="protocol-header">
+                <div class="protocol-badge">Protocolo Desenvolvido</div>
+                <h2 class="protocol-name">MTU™</h2>
+                <p class="protocol-tagline">Mecanismo Terapêutico Único</p>
+            </div>
+
+            <div style="max-width: 800px; margin: 0 auto 4rem; text-align: center;">
+                <p style="font-size: 1.15rem; line-height: 1.8; color: rgba(255,255,255,0.7);">Protocolo desenvolvido para identificar, nomear e estruturar o processo terapêutico utilizado pelo profissional, tornando-o comunicável de forma clara e diferenciada.</p>
+            </div>
+
+            <div class="modules-layout">
+                <div class="module-card">
+                    <h3 class="module-title">Sistema guiado de implementação</h3>
+                    <p class="module-desc">Plataforma estruturada que conduz o profissional por todas as etapas do processo, com orientações claras e sequenciadas.</p>
+                </div>
+
+                <div class="module-card">
+                    <h3 class="module-title">Assistente de inteligência artificial</h3>
+                    <p class="module-desc">Ferramenta integrada que auxilia na identificação de padrões, sugere estruturas de comunicação e refina vocabulário personalizado.</p>
+                </div>
+
+                <div class="module-card">
+                    <h3 class="module-title">Módulo 1 · Diagnóstico</h3>
+                    <p class="module-desc">Mapeamento do processo terapêutico atual e identificação de padrões implícitos.</p>
+                </div>
+
+                <div class="module-card">
+                    <h3 class="module-title">Módulo 2 · Extração do mecanismo</h3>
+                    <p class="module-desc">Revelação e nomeação das estruturas que funcionam mas nunca foram formalmente identificadas.</p>
+                </div>
+
+                <div class="module-card">
+                    <h3 class="module-title">Módulo 3 · Scripts de comunicação</h3>
+                    <p class="module-desc">Desenvolvimento de textos, apresentações e estruturas baseadas no método identificado.</p>
+                </div>
+
+                <div class="module-card">
+                    <h3 class="module-title">Módulo 4 · Implementação</h3>
+                    <p class="module-desc">Aplicação prática dos materiais desenvolvidos com orientações de uso.</p>
+                </div>
+
+                <div class="module-card">
+                    <h3 class="module-title">Análise de concorrência</h3>
+                    <p class="module-desc">Ferramenta para mapear comunicação de outros profissionais e identificar oportunidades de diferenciação.</p>
+                </div>
+
+                <div class="module-card">
+                    <h3 class="module-title">Suporte técnico humano</h3>
+                    <p class="module-desc">Equipe disponível para esclarecimento de dúvidas, validação de estruturas e orientações específicas.</p>
+                </div>
+            </div>
+
+            <div class="investment-container" id="access">
+                <div class="investment-label">Investimento</div>
+                <div class="investment-amount">R$ 470</div>
+                <div class="investment-details">
+                    Pagamento único<br>
+                    Parcelamento disponível em até 12x no cartão<br>
+                    <strong style="color: rgba(255,255,255,0.8);">Acesso vitalício à plataforma</strong>
+                </div>
+                <a href="https://wa.me/5511972517959?text=Olá!%20Gostaria%20de%20solicitar%20acesso%20ao%20Protocolo%20MTU™" class="btn-primary">Solicitar Acesso</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results -->
+    <section class="feature-section">
+        <div class="content-wrapper">
+            <div class="section-header">
+                <div class="section-number-large">03</div>
+                <h2 class="section-title-large">Mudanças relatadas</h2>
+            </div>
+            
+            <div class="reading-content">
+                <p>Profissionais que implementaram o Protocolo MTU™ reportam alterações consistentes no padrão de atração e conversão:</p>
+
+                <div class="results-grid">
+                    <div class="result-card">
+                        <div class="result-label">Perfil de Clientes</div>
+                        <div class="result-text">Maior qualificação inicial, compreensão clara do processo antes do primeiro contato, redução significativa de objeções relacionadas a preço.</div>
+                    </div>
+
+                    <div class="result-card">
+                        <div class="result-label">Reconhecimento</div>
+                        <div class="result-text">Clientes compreendem o método utilizado, diferenciam o trabalho de abordagens genéricas, justificam o investimento por clareza de processo.</div>
+                    </div>
+
+                    <div class="result-card">
+                        <div class="result-label">Indicações</div>
+                        <div class="result-text">Aumento na frequência e qualidade de indicações. Clientes conseguem explicar o trabalho para terceiros de forma clara, gerando indicações qualificadas.</div>
+                    </div>
+
+                    <div class="result-card">
+                        <div class="result-label">Posicionamento</div>
+                        <div class="result-text">Diferenciação clara no ambiente digital, autoridade baseada em método comunicado, redução de comparação apenas por preço.</div>
+                    </div>
+
+                    <div class="result-card">
+                        <div class="result-label">Conversão</div>
+                        <div class="result-text">Clientes chegam ao primeiro atendimento já compreendendo o processo, reduzindo necessidade de "convencimento" e aumentando aderência ao tratamento.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Publications -->
+    <section class="publications-section" id="publications">
+        <div class="content-wrapper">
+            <div class="section-header">
+                <div class="section-number-large" style="color: rgba(0,0,0,0.06);">04</div>
+                <h2 class="section-title-large">Publicações</h2>
+            </div>
+            
+            <div class="reading-content">
+                <p style="text-align: center; margin-bottom: 4rem;">Reflexões aplicadas sobre comunicação estratégica na prática terapêutica.</p>
+
+                <div class="publications-grid">
+                    <a href="javascript:void(0);" class="publication-card" onclick="openArticle('artigo1')">
+                        <div class="publication-number">01</div>
+                        <div class="publication-content">
+                            <h3>Por que terapeutas competentes atraem clientes que reclamam de preço</h3>
+                            <p class="publication-excerpt">A relação entre invisibilidade comunicacional e objeção de valor.</p>
+                        </div>
+                        <div class="publication-arrow">→</div>
+                    </a>
+
+                    <a href="javascript:void(0);" class="publication-card" onclick="openArticle('artigo2')">
+                        <div class="publication-number">02</div>
+                        <div class="publication-content">
+                            <h3>O custo da generalização: quando "atendimento humanizado" deixou de diferenciar</h3>
+                            <p class="publication-excerpt">Como a padronização da linguagem tornou profissionais indistinguíveis.</p>
+                        </div>
+                        <div class="publication-arrow">→</div>
+                    </a>
+
+                    <a href="javascript:void(0);" class="publication-card" onclick="openArticle('artigo3')">
+                        <div class="publication-number">03</div>
+                        <div class="publication-content">
+                            <h3>Indicações que não acontecem: o problema da comunicação implícita</h3>
+                            <p class="publication-excerpt">Por que clientes satisfeitos não conseguem explicar seu trabalho para outros.</p>
+                        </div>
+                        <div class="publication-arrow">→</div>
+                    </a>
+                </div>
+
+                <div style="margin-top: 4rem; text-align: center;">
+                    <a href="blog.html" class="btn-secondary">Ver Todas as Publicações</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>Núcleo CEAT</h4>
+                <p>Núcleo de Comunicação Estratégica Avançada para Terapeutas</p>
+                <p style="margin-top: 2rem; font-style: italic;">Estruturação e implementação de comunicação clara para processos terapêuticos complexos.</p>
+            </div>
+
+            <div class="footer-col">
+                <h4>Contato</h4>
+                <p>WhatsApp: +55 11 97251-7959</p>
+                <p>Email: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="482b27263c293c2708263d2b242d272b2d293c662b2725662a3a">[email&#160;protected]</a></p>
+            </div>
+
+            <div class="footer-col">
+                <h4>Links</h4>
+                <a href="blog.html">Publicações</a>
+                <a href="#privacy">Política de Privacidade</a>
+                <a href="#terms">Termos de Uso</a>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2025 Núcleo CEAT. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Modals -->
+    <div id="modal-artigo1" class="modal-overlay">
+        <button class="modal-close" onclick="closeArticle('artigo1')">✕</button>
+        <div class="modal-container">
+            <article class="modal-article">
+                <h1>Por que terapeutas competentes atraem clientes que reclamam de preço</h1>
+                <div class="article-meta">Publicação · Núcleo CEAT</div>
+                
+                <p>A objeção de preço não é uma questão financeira. É uma questão comunicacional.</p>
+
+                <p>Profissionais com formação sólida, anos de experiência clínica e resultados consistentes frequentemente relatam o mesmo padrão: clientes que chegam perguntando primeiro o valor da sessão, comparando preços como se escolhessem um produto genérico, demonstrando resistência ao investimento antes mesmo de compreender o processo oferecido.</p>
+
+                <p>A causa desse fenômeno não está na capacidade de pagamento do público. Está na ausência de clareza sobre o que diferencia aquele profissional dos demais disponíveis no mercado.</p>
+
+                <p>Quando o processo terapêutico não é nomeado, estruturado e explicado antes do primeiro contato, o cliente em potencial não possui critérios de avaliação além de variáveis superficiais: localização geográfica, disponibilidade de horário e, inevitavelmente, preço da sessão.</p>
+
+                <h2>A invisibilidade do método gera comparação por preço</h2>
+
+                <p>A lógica é simples: na ausência de diferenciação clara, o preço se torna o único critério comparável. Dois terapeutas que apresentam credenciais semelhantes, descrevem abordagens de forma genérica e utilizam linguagem padronizada tornam-se indistinguíveis aos olhos de quem busca atendimento.</p>
+
+                <p>O público leigo não consegue avaliar competência técnica diretamente. Não possui instrumentos para distinguir qualidade de formação, profundidade de experiência ou eficácia de método apenas pela leitura de um perfil digital ou pela escuta de uma apresentação genérica.</p>
+
+                <p>Diante dessa impossibilidade de diferenciação qualitativa, resta a diferenciação quantitativa: quanto custa.</p>
+
+                <h2>O problema estrutural da comunicação terapêutica</h2>
+
+                <p>A questão não é que terapeutas cobrem valores inadequados. A questão é que valores adequados são apresentados sem contexto que os justifique.</p>
+
+                <p>"R$ 300 a sessão" gera objeção quando aparece isoladamente, sem explicação sobre o processo que esse valor representa. A mesma sessão de "R$ 300 para reestruturação cognitiva aplicada a padrões de antecipação negativa, com protocolo estruturado em doze semanas e materiais de apoio personalizados" gera compreensão.</p>
+
+                <p>A diferença não está no valor cobrado. Está na clareza sobre o que esse valor representa em termos de processo, método e estrutura.</p>
+
+                <h2>Mudança no padrão de objeções</h2>
+
+                <p>Terapeutas que implementam sistemas de comunicação estruturada relatam mudança imediata no padrão de objeções recebidas. Clientes chegam ao primeiro contato já compreendendo o processo, fazendo perguntas sobre aplicação prática do método, não sobre validade ou comparação com outras opções disponíveis.</p>
+
+                <p>A objeção de preço não desaparece completamente. Mas muda de natureza. Deixa de ser "por que custa isso?" e passa a ser "posso parcelar?" — uma objeção operacional, não conceitual.</p>
+
+                <p>Quando o processo é claro, o preço se torna consequência natural do valor percebido, não ponto de partida para negociação ou desistência.</p>
+
+                <h2>A solução está na estruturação comunicacional</h2>
+
+                <p>A resposta para o problema da objeção de preço não é persuasão comercial. É clareza técnica sobre o processo oferecido.</p>
+
+                <p>Profissionais que mapeiam, nomeiam e estruturam o método que já utilizam deixam de competir por preço e passam a atrair clientes que buscam exatamente aquele processo específico.</p>
+
+                <p>O Protocolo MTU™ foi desenvolvido exatamente para resolver esse problema estrutural: transformar processos terapêuticos implícitos em comunicação clara, diferenciada e compreensível para o público leigo, sem descaracterizar a profundidade clínica ou a ética profissional.</p>
+
+                <div class="modal-cta">
+                    <p><strong>Investimento: R$ 470</strong> (parcelamento disponível em até 12x) · Acesso vitalício</p>
+                    <a href="https://wa.me/5511972517959?text=Olá!%20Gostaria%20de%20conhecer%20o%20Protocolo%20MTU™" class="btn-primary">Conhecer o Protocolo MTU™</a>
+                </div>
+            </article>
+        </div>
+    </div>
+
+    <div id="modal-artigo2" class="modal-overlay">
+        <button class="modal-close" onclick="closeArticle('artigo2')">✕</button>
+        <div class="modal-container">
+            <article class="modal-article">
+                <h1>O custo da generalização: quando "atendimento humanizado" deixou de diferenciar</h1>
+                <div class="article-meta">Publicação · Núcleo CEAT</div>
+                
+                <p>Faça um experimento simples: acesse qualquer plataforma de busca por terapeutas. Percorra dez perfis profissionais. Conte quantos mencionam "atendimento humanizado", "escuta qualificada", "espaço acolhedor" ou "abordagem integrativa".</p>
+
+                <p>O resultado será previsível: a maioria absoluta utiliza exatamente as mesmas expressões, as mesmas promessas genéricas, a mesma linguagem padronizada que, paradoxalmente, deveria servir para diferenciação.</p>
+
+                <p>A padronização da linguagem tornou profissionais clinicamente distintos comunicacionalmente indistinguíveis.</p>
+
+                <h2>O problema da verdade genérica</h2>
+
+                <p>O problema não é a veracidade dessas afirmações. Todo terapeuta sério oferece escuta qualificada. Todo profissional ético mantém espaço acolhedor. Atendimento humanizado não é diferencial, é requisito mínimo da prática.</p>
+
+                <p>O problema é que, quando todos dizem a mesma coisa da mesma forma, ninguém diz nada que permita diferenciação real.</p>
+
+                <p>A generalização comunicacional força o público leigo a tomar decisões baseadas em critérios secundários: quem está geograficamente mais próximo, quem possui horário disponível compatível com a agenda, quem cobra o menor valor.</p>
+
+                <h2>Diferenciação por processo, não por promessa</h2>
+
+                <p>A diferenciação verdadeira não acontece por carisma pessoal ou por promessas emocionais. Acontece por clareza de processo.</p>
+
+                <p>Profissionais que nomeiam e estruturam o método específico que utilizam deixam de competir no campo genérico das boas intenções e passam a ocupar posição única no campo específico dos processos aplicados.</p>
+
+                <p>A diferença entre "atendo casos de ansiedade com abordagem humanizada" e "trabalho com regulação emocional por meio de reestruturação cognitiva aplicada a padrões de antecipação negativa, utilizando protocolo estruturado de identificação e modificação de crenças disfuncionais" não é apenas semântica. É estrutural.</p>
+
+                <h2>A armadilha da linguagem acessível</h2>
+
+                <p>Existe um argumento comum contra a especificidade: "o público leigo não entende termos técnicos, preciso simplificar."</p>
+
+                <p>O erro está na confusão entre simplificação e generalização.</p>
+
+                <p>Simplificação é traduzir complexidade técnica em linguagem clara mantendo precisão. Generalização é eliminar precisão em nome de uma acessibilidade que, na prática, gera invisibilidade.</p>
+
+                <h2>O custo real da generalização</h2>
+
+                <p>O custo da generalização não é apenas invisibilidade profissional. É atração do perfil inadequado de clientes.</p>
+
+                <p>Quando a comunicação é genérica, chegam clientes com expectativas genéricas, que não compreendem o processo, que comparam exclusivamente por preço, que abandonam tratamento precocemente por falta de clareza sobre o método utilizado.</p>
+
+                <h2>A solução está na nomeação</h2>
+
+                <p>A resposta não é criar linguagem rebuscada ou inacessível. É nomear com precisão o processo que já é utilizado na prática clínica, mas nunca foi formalmente estruturado para comunicação externa.</p>
+
+                <p>O Protocolo MTU™ auxilia terapeutas a identificar, nomear e estruturar o método específico que já aplicam, transformando prática implícita em comunicação explícita, sem simplificação excessiva ou jargão inacessível.</p>
+
+                <div class="modal-cta">
+                    <p><strong>Investimento: R$ 470</strong> (parcelamento disponível em até 12x) · Acesso vitalício</p>
+                    <a href="https://wa.me/5511972517959?text=Olá!%20Gostaria%20de%20solicitar%20acesso%20ao%20MTU™" class="btn-primary">Solicitar acesso ao MTU™</a>
+                </div>
+            </article>
+        </div>
+    </div>
+
+    <div id="modal-artigo3" class="modal-overlay">
+        <button class="modal-close" onclick="closeArticle('artigo3')">✕</button>
+        <div class="modal-container">
+            <article class="modal-article">
+                <h1>Indicações que não acontecem: o problema da comunicação implícita</h1>
+                <div class="article-meta">Publicação · Núcleo CEAT</div>
+                
+                <p>O cenário é familiar: cliente satisfeito, processo terapêutico bem-sucedido, alta adequada após meses de trabalho consistente. A relação foi positiva, os resultados foram alcançados, a despedida foi cordial.</p>
+
+                <p>Três meses depois: nenhuma indicação.</p>
+
+                <p>A ausência de indicações espontâneas após processos bem-sucedidos não é falta de gratidão do cliente. É falta de vocabulário.</p>
+
+                <h2>O problema da comunicação implícita</h2>
+
+                <p>Quando o processo terapêutico permanece implícito durante todo o tratamento, o cliente não desenvolve capacidade de explicar para terceiros o que aconteceu, como funcionou, por que foi diferente de outras experiências ou opções disponíveis.</p>
+
+                <p>A conversa com amigos, familiares ou colegas que mencionam buscar terapia se resume a: "Fiz terapia com a Dra. X e me ajudou muito. Não sei explicar direito como funciona, mas funcionou pra mim."</p>
+
+                <p>Essa descrição é autêntica. Mas é insuficiente para gerar indicação qualificada.</p>
+
+                <h2>Processos não comunicados não são comunicáveis</h2>
+
+                <p>A lógica é estrutural: se o processo não foi nomeado, estruturado e explicado durante o tratamento, o cliente não possui linguagem para reproduzi-lo em conversas externas.</p>
+
+                <p>Mesmo clientes extremamente satisfeitos enfrentam dificuldade em articular o diferencial do trabalho realizado quando esse diferencial nunca foi explicitado de forma clara.</p>
+
+                <h2>A diferença entre indicação genérica e indicação qualificada</h2>
+
+                <p>"Ela é muito boa" é indicação genérica. Expressa satisfação, mas não transmite processo. Não permite que a pessoa indicada avalie adequação do método às próprias necessidades.</p>
+
+                <p>"Ela trabalha com identificação de padrões relacionais disfuncionais herdados de dinâmicas familiares e reestruturação de narrativas internas por meio de técnicas de escrita terapêutica estruturada" é indicação qualificada.</p>
+
+                <p>Permite que a pessoa indicada compreenda o processo, avalie relevância para sua situação e chegue ao primeiro contato já com clareza sobre o método utilizado.</p>
+
+                <h2>O papel do terapeuta na construção de vocabulário</h2>
+
+                <p>A responsabilidade pela construção desse vocabulário não é do cliente. É do terapeuta.</p>
+
+                <p>Profissionais que estruturam e nomeiam o método utilizado, que explicam o processo de forma clara desde o início, que utilizam linguagem técnica acessível ao longo do tratamento, capacitam clientes a se tornarem agentes ativos de indicação.</p>
+
+                <h2>Indicações qualificadas geram clientes qualificados</h2>
+
+                <p>A consequência da construção desse vocabulário vai além do aumento numérico de indicações.</p>
+
+                <p>Indicações qualificadas geram clientes qualificados: pessoas que chegam já compreendendo o processo, que buscam exatamente aquele método específico, que possuem expectativas alinhadas com a abordagem utilizada.</p>
+
+                <h2>A estruturação como solução</h2>
+
+                <p>A solução não é pedir indicações aos clientes. É estruturar o processo de forma que clientes satisfeitos possuam naturalmente o vocabulário necessário para indicar de forma clara e precisa.</p>
+
+                <p>O Protocolo MTU™ inclui desenvolvimento de vocabulário técnico acessível que permite ao cliente não apenas vivenciar o processo, mas compreendê-lo e explicá-lo para terceiros com clareza e precisão, transformando satisfação em indicação qualificada.</p>
+
+                <div class="modal-cta">
+                    <p><strong>Investimento: R$ 470</strong> (parcelamento disponível em até 12x) · Acesso vitalício</p>
+                    <a href="https://wa.me/5511972517959?text=Olá!%20Gostaria%20de%20iniciar%20a%20implementação%20do%20MTU™" class="btn-primary">Iniciar implementação</a>
+                </div>
+            </article>
+        </div>
+    </div>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        function openArticle(articleId) {
+            const modal = document.getElementById('modal-' + articleId);
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            window.scrollTo(0, 0);
+        }
+
+        function closeArticle(articleId) {
+            const modal = document.getElementById('modal-' + articleId);
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        document.addEventListener('click', function(e) {
+            if (e.target.classList.contains('modal-overlay')) {
+                e.target.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                document.querySelectorAll('.modal-overlay.active').forEach(modal => {
+                    modal.classList.remove('active');
+                });
+                document.body.style.overflow = '';
+            }
+        });
+    </script>
+</body>
+</html>
