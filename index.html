@@ -176,6 +176,67 @@
             padding: 0 4rem;
         }
 
+        /* Círculo Banner */
+        .circulo-banner {
+            background: linear-gradient(135deg, var(--noir) 0%, var(--charcoal) 100%);
+            padding: 4rem 0;
+            border-top: 1px solid var(--gold);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .circulo-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .circulo-badge {
+            display: inline-block;
+            padding: 0.5rem 1.2rem;
+            background: rgba(184, 152, 95, 0.1);
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            font-size: 0.65rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+
+        .circulo-title {
+            font-size: 2.5rem;
+            color: white;
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+        }
+
+        .circulo-description {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 2.5rem;
+        }
+
+        .btn-circulo {
+            display: inline-block;
+            padding: 1.2rem 3.5rem;
+            background: var(--gold);
+            color: var(--noir);
+            text-decoration: none;
+            font-size: 0.75rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+        }
+
+        .btn-circulo:hover {
+            background: white;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(184, 152, 95, 0.3);
+        }
+
         /* Section Headers - Centralizados */
         .section-header {
             text-align: center;
@@ -743,6 +804,18 @@
                 padding-top: 3rem;
             }
 
+            .circulo-banner {
+                padding: 3rem 0;
+            }
+
+            .circulo-title {
+                font-size: 2rem;
+            }
+
+            .circulo-description {
+                font-size: 0.95rem;
+            }
+
             .content-wrapper {
                 padding: 0 2rem;
             }
@@ -838,6 +911,18 @@
                     <div class="hero-meta-label">Metodologia</div>
                     <div class="hero-meta-value">Protocolos aplicados · Desenvolvimento contínuo</div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Círculo NCEAT Banner -->
+    <section class="circulo-banner">
+        <div class="content-wrapper">
+            <div class="circulo-content">
+                <div class="circulo-badge">Acesso Gratuito</div>
+                <h2 class="circulo-title">Círculo de Profissionais NCEAT</h2>
+                <p class="circulo-description">Grupo dedicado a insights aplicados sobre diferenciação profissional e estruturação comunicacional na prática terapêutica. Acesso direto a análises, estudos de caso e metodologias em desenvolvimento.</p>
+                <a href="https://chat.whatsapp.com/SEU_LINK_DO_GRUPO" target="_blank" class="btn-circulo">Solicitar Acesso ao Círculo</a>
             </div>
         </div>
     </section>
